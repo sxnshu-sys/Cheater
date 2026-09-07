@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For You 🤍</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #080b18;
+  color: white;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+/* 🌌 STARS */
+#stars {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: white;
+  border-radius: 50%;
+  animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+  from {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1.8);
+  }
+}
+
+/* 🤍 FLOATING HEARTS */
+#hearts {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.heart {
+  position: absolute;
+  bottom: -50px;
+  font-size: 18px;
+  opacity: 0;
+  animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 0.7;
+  }
+
+  85% {
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: translateY(-115vh);
+    opacity: 0;
+  }
+}
+
+/* 📖 PAGES */
+.page {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 25px;
+  overflow-y: auto;
+}
+
+.page.active {
+  display: flex;
+  animation: pageIn 0.8s ease;
+}
+
+@keyframes pageIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.content {
+  width: 100%;
+  max-width: 650px;
+  padding: 40px 10px;
+}
+
+h1 {
+  font-size: 40px;
+  margin-bottom: 25px;
+}
+
+p {
+  font-size: 17px;
+  line-height: 1.9;
+  color: #d7d9e3;
+}
+
+.message-box {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 20px;
+  padding: 22px;
+}
+
+/* 🔘 BUTTON */
+button {
+  margin-top: 28px;
+  padding: 15px 28px;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  background: white;
+  color: #080b18;
+  transition: 0.3s;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+/* 📸 FINAL PHOTO */
+.final-photo {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 20px;
+  margin-bottom: 25px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🌌 Background -->
+<div id="stars"></div>
+
+<!-- 🤍 Hearts -->
+<div id="hearts"></div>
+
+
+<!-- PAGE 1 -->
+<div class="page active" id="page1">
+  <div class="content">
+    <h1>Hey...</h1>
+    <p>I made something for you 🤍</p>
+    <button onclick="goToPage(2)">Click to begin ✨</button>
+  </div>
+</div>
+
+
+<!-- PAGE 2 -->
+<div class="page" id="page2">
+  <div class="content">
+    <h1>Welcome 🌌</h1>
+    <p>একটু সময় নিয়ে পড়িস...</p>
+    <button onclick="goToPage(3)">Continue →</button>
+  </div>
+</div>
+
+
+<!-- PAGE 3 -->
+<div class="page" id="page3">
+  <div class="content">
+
+    <h1>16/03/2026 🤍</h1>
+
+    <div class="message-box">
+      <p>
+        Janis... 3 Bochor ar besi hoye gelo kintu ai mone hocche koek din agey toke school ar baire cycle kore ak jholok dekhte gechilam.
+        <br><br>
+        Time manus der change korbe ata reality but ami aktu immature toh tai bujhi na.
+        <br><br>
+        Agey ak din chara thakle kemon hoye jeto sob kichu akhon seta kon bepar na obhes hoyegeche.
+      </p>
+    </div>
+
+    <button onclick="goToPage(4)">আরেকটু বলি →</button>
+
+  </div>
+</div>
+
+
+<!-- PAGE 4 -->
+<div class="page" id="page4">
+  <div class="content">
+
+    <h1>🤍</h1>
+
+    <div class="message-box">
+      <p>
+        Baje jeno toke sarakhon nijer kache agle rakhte chai.
+        Tui bujhbi na ami toke koto ta bhalo.
+        <br><br>
+        Kotha sunte kharap lagle hoyto tor theke onek beshi onek bhul kori,
+        kintu rag thanda holei sei mummum mummum ar kache e jaoar chonno mon chai.
+        <br><br>
+        Ai mon ta khub e baje.
+      </p>
+    </div>
+
+    <button onclick="goToPage(5)">Continue →</button>
+
+  </div>
+</div>
+
+
+<!-- PAGE 5 -->
+<div class="page" id="page5">
+  <div class="content">
+
+    <h1>আর একটা কথা... 🌙</h1>
+
+    <div class="message-box">
+      <p>
+        Jai ase na prithibi ki bhabe sarajibon toke mummum mummum bole agle rakhte chai.
+        <br><br>
+        Kintu din din jeno sob kothai hoye jacche.
+        Hoyto kotha hocche ha, amader onek kotha hocche thik ache dekhte lagleo...
+        <br><br>
+        Kintu sotti bolte ata din din bhetor theke faka hoye jacche...
+      </p>
+    </div>
+
+    <button onclick="goToPage(6)">আরেকটু পড়ো →</button>
+
+  </div>
+</div>
+
+
+<!-- PAGE 6 -->
+<div class="page" id="page6">
+  <div class="content">
+
+    <h1>হয়তো... 🤍</h1>
+
+    <div class="message-box">
+      <p>
+        Hoyto tor nekami lagte pare, osojjho lagte pare.
+        Ha jani ata osojjho.
+        <br><br>
+        1 sopta kotha bolar abar 1 sopta bondho.
+        <br><br>
+        But tui ki janis oi ak soptar bhalobasha ta dekhte joto e sundor laguk ota toto e beshiye jacche.
+      </p>
+    </div>
+
+    <button onclick="goToPage(7)">শেষের আগে →</button>
+
+  </div>
+</div>
+
+
+<!-- PAGE 7 -->
+<div class="page" id="page7">
+  <div class="content">
+
+    <h1>শেষ হওয়ার আগে... 🤍</h1>
+
+    <div class="message-box">
+      <p>
+        Atake tui amar overthinking naam ditei paris.
+        Hoyto tui bolte paris ata ami sob somoy boli.
+        <br><br>
+        But mone rakhbi tor mon jane asole ki hocche,
+        tai amar ar kichu bolar dorkar nei. 🤍🙂‍↕️
+        <br><br>
+        Ato tai tor birthday ar late gift bolte paris.
+      </p>
+    </div>
+
+    <button onclick="goToPage(8)">শেষ কথা →</button>
+
+  </div>
+</div>
+
+
+<!-- PAGE 8 FINAL -->
+<div class="page" id="page8">
+  <div class="content">
+
+    <!-- 📸 FINAL PHOTO -->
+    <img
+      src="https://i.ibb.co/XrQCzhQY/final.jpg"
+      class="final-photo"
+      alt="final photo"
+    >
+
+    <h1>শেষ কথা... 🤍</h1>
+
+    <div class="message-box">
+      <p>
+        এতটুকুই...
+        <br><br>
+        হয়তো সবকিছু কথায় বলা যায় না।
+        তাই এই ছোট্ট website-টা বানালাম।
+        <br><br>
+        এটা তাই তোর birthday-r late gift বলতেই পারিস। 🤍
+      </p>
+    </div>
+
+    <button onclick="goToPage(1)">↻ আবার শুরু</button>
+
+  </div>
+</div>
+
+
+<script>
+
+/* 🌌 CREATE STARS */
+const stars = document.getElementById("stars");
+
+for (let i = 0; i < 90; i++) {
+  const star = document.createElement("div");
+
+  star.className = "star";
+  star.style.left = Math.random() * 100 + "%";
+  star.style.top = Math.random() * 100 + "%";
+  star.style.animationDelay = Math.random() * 2 + "s";
+
+  stars.appendChild(star);
+}
+
+
+/* 🤍 CREATE HEARTS */
+const hearts = document.getElementById("hearts");
+
+for (let i = 0; i < 10; i++) {
+  const heart = document.createElement("div");
+
+  heart.className = "heart";
+  heart.innerHTML = "🤍";
+
+  heart.style.left = Math.random() * 100 + "%";
+  heart.style.animationDuration = (7 + Math.random() * 5) + "s";
+  heart.style.animationDelay = Math.random() * 5 + "s";
+
+  hearts.appendChild(heart);
+}
+
+
+/* 💫 CHANGE PAGE */
+function goToPage(number) {
+  const pages = document.querySelectorAll(".page");
+
+  pages.forEach(function(page) {
+    page.classList.remove("active");
+  });
+
+  document
+    .getElementById("page" + number)
+    .classList.add("active");
+}
+
+</script>
+
+</body>
+</html>
